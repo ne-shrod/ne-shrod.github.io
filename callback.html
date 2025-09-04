@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing...</title>
+    <script>
+        function processAuth() {
+            const hash = window.location.hash;
+            if (hash && hash.includes('tgAuthResult=')) {
+                const data = hash.split('tgAuthResult=')[1];
+                
+                // Сохраняем данные
+                localStorage.setItem('tgAuthData', data);
+                console.log("Auth data received:", data);
+                
+                // Возвращаемся на главную страницу
+                setTimeout(() => {
+                    window.location.href = 'https://shrod-or.github.io';
+                }, 1000);
+            }
+        }
+    </script>
+</head>
+<body onload="processAuth()">
+    <h2>Authorization in progress...</h2>
+    <p>Please wait while we process your data.</p>
+</body>
+</html>
